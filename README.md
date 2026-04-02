@@ -1,17 +1,14 @@
-# p-skills
+# p-skills-airbyte
 
-Personal collection of Claude Code skills, organized by target repo/org.
+Claude Code plugin marketplace for Airbyte repos.
 
-## Structure
+## Install
 
 ```
-p-skills/
-  airbyte/          # Skills for airbytehq repos
-    <skill-name>/
-      SKILL.md
-  personal/         # Skills for personal projects
-    <skill-name>/
-      SKILL.md
+/plugin marketplace add pnilan/p-skills#airbyte
+/plugin install p-skills-airbyte@p-skills-airbyte
 ```
 
-Each top-level directory maps to a target repo or organization where the skills are deployed. Each skill lives in its own subdirectory containing a `SKILL.md` file.
+## Skills
+
+- **review-api-source-pr** - Review a PR for an API source connector for correctness, completeness, and CDK pattern adherence

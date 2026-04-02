@@ -1,0 +1,16 @@
+{
+  "name": "p-skills-airbyte",
+  "owner": {
+    "name": "Patrick Nilan"
+  },
+  "metadata": {
+    "description": "Personal Claude Code skills for Airbyte repos"
+  },
+  "plugins": [
+    {
+      "name": "p-skills-airbyte",
+      "source": "./airbyte",
+      "description": "Skills for airbytehq repos"
+    }
+  ]
+}
