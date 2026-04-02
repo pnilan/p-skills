@@ -1,0 +1,16 @@
+{
+  "name": "p-skills-personal",
+  "owner": {
+    "name": "Patrick Nilan"
+  },
+  "metadata": {
+    "description": "Personal Claude Code skills for personal projects"
+  },
+  "plugins": [
+    {
+      "name": "p-skills-personal",
+      "source": "./personal",
+      "description": "Skills for personal projects"
+    }
+  ]
+}
