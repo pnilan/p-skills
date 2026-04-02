@@ -1,17 +1,19 @@
 # p-skills
 
-Personal collection of Claude Code skills, organized by target repo/org.
+Personal Claude Code skills, organized as separate plugin marketplaces per branch.
 
-## Structure
+## Marketplaces
 
-```
-p-skills/
-  airbyte/          # Skills for airbytehq repos
-    <skill-name>/
-      SKILL.md
-  personal/         # Skills for personal projects
-    <skill-name>/
-      SKILL.md
-```
+Each branch is an independent Claude Code plugin marketplace:
 
-Each top-level directory maps to a target repo or organization where the skills are deployed. Each skill lives in its own subdirectory containing a `SKILL.md` file.
+| Branch | Purpose | Install |
+|--------|---------|---------|
+| `airbyte` | Skills for airbytehq repos | `/plugin marketplace add pnilan/p-skills#airbyte` |
+| `personal` | Skills for personal projects | `/plugin marketplace add pnilan/p-skills#personal` |
+
+## Adding a new marketplace
+
+1. Create a new branch from `main`
+2. Add `.claude-plugin/marketplace.json` at the root
+3. Create a plugin directory with `.claude-plugin/plugin.json` and `skills/`
+4. Push the branch
