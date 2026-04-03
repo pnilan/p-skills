@@ -261,10 +261,17 @@ Wait for ALL agents to complete. Compile the results into a single report.
 **DR Connector Support Level**: `{certified | community}` ← from `metadata.yaml` `data.supportLevel`
 **Audit Date**: {date}
 
+## DR Certification Status
+
+**DR Connector Certified**: `{YES | NO}` ← `certified` if `data.supportLevel` in `metadata.yaml` is `certified`, otherwise `NO`
+
+> A non-certified DR connector may indicate lower test coverage, documentation quality, or maintenance commitment. Factor this into priority decisions.
+
 ## Overall Parity Score
 
 | Dimension | Status | Gaps |
 |-----------|--------|------|
+| DR Certification | {YES / NO} | -- |
 | Stream/Entity Coverage | {FULL / PARTIAL / LOW} | {count} gaps |
 | Authentication | {FULL / PARTIAL / LOW} | {count} gaps |
 | Schema/Fields | {FULL / PARTIAL / LOW} | {count} mismatches |

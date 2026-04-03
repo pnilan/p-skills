@@ -62,7 +62,8 @@ Extract: entities/actions (x-airbyte-entity, x-airbyte-action), auth methods (se
 
 STEP 2: Check if source-{connector_name} exists in airbyte-integrations/connectors/ in the airbyte repo.
 If not found, report: 'No DR counterpart found' and stop.
-If found, extract: streams, auth methods, API base URL/version, stream schemas (schemas/*.json or inline), query parameters per stream.
+If found, read metadata.yaml and extract data.supportLevel (certified or community) -- this is the DR certification status.
+Also extract: streams, auth methods, API base URL/version, stream schemas (schemas/*.json or inline), query parameters per stream.
 
 STEP 3: Compare across 4 dimensions:
 1. Stream/Entity Coverage -- DR streams vs ADP entities (both directions). Note write-only ADP entities separately.
@@ -76,12 +77,18 @@ STEP 4: Produce the report in this exact format:
 
 **ADP Connector**: `{connector_name}` (airbytehq/sonar)
 **DR Connector**: `source-{connector_name}` (airbytehq/airbyte)
+**DR Connector Support Level**: `{certified | community}` ← from `metadata.yaml` `data.supportLevel`
 **Audit Date**: {today's date}
+
+## DR Certification Status
+
+**DR Connector Certified**: `{YES | NO}` ← `certified` if `data.supportLevel` is `certified`, otherwise `NO`
 
 ## Overall Parity Score
 
 | Dimension | Status | Gaps |
 |-----------|--------|------|
+| DR Certification | YES/NO | -- |
 | Stream/Entity Coverage | FULL/PARTIAL/LOW | count |
 | Authentication | FULL/PARTIAL/LOW | count |
 | Schema/Fields | FULL/PARTIAL/LOW | count |
@@ -118,15 +125,17 @@ After all audits complete, produce a fleet-wide summary at `{output_directory}/{
 
 ## Parity Overview
 
-| Connector | DR Exists | DR Support Level | Coverage | Auth | Schema | API Version | Params | Action Items |
-|-----------|-----------|------------------|----------|------|--------|-------------|--------|--------------|
-| {name} | YES/NO | certified/community | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | MATCH/MISMATCH | FULL/PARTIAL/LOW | P0: X, P1: X, P2: X |
-| ... | ... | ... | ... | ... | ... | ... | ... | ... |
+| Connector | DR Exists | DR Certified | DR Support Level | Coverage | Auth | Schema | API Version | Params | Action Items |
+|-----------|-----------|--------------|------------------|----------|------|--------|-------------|--------|--------------|
+| {name} | YES/NO | YES/NO | certified/community | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | MATCH/MISMATCH | FULL/PARTIAL/LOW | P0: X, P1: X, P2: X |
+| ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 ## Connectors Without DR Counterpart
 - {list}
 
 ## Fleet-Wide Statistics
+- **DR connector is certified**: X connectors
+- **DR connector is NOT certified**: X connectors
 - **Full parity across all dimensions**: X connectors
 - **Has P0 (critical) gaps**: X connectors
 - **Has P1 (important) gaps**: X connectors
