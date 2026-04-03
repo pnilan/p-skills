@@ -118,10 +118,10 @@ After all audits complete, produce a fleet-wide summary at `{output_directory}/{
 
 ## Parity Overview
 
-| Connector | DR Exists | Coverage | Auth | Schema | API Version | Params | Action Items |
-|-----------|-----------|----------|------|--------|-------------|--------|--------------|
-| {name} | YES/NO | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | MATCH/MISMATCH | FULL/PARTIAL/LOW | P0: X, P1: X, P2: X |
-| ... | ... | ... | ... | ... | ... | ... | ... |
+| Connector | DR Exists | DR Support Level | Coverage | Auth | Schema | API Version | Params | Action Items |
+|-----------|-----------|------------------|----------|------|--------|-------------|--------|--------------|
+| {name} | YES/NO | certified/community | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | FULL/PARTIAL/LOW | MATCH/MISMATCH | FULL/PARTIAL/LOW | P0: X, P1: X, P2: X |
+| ... | ... | ... | ... | ... | ... | ... | ... | ... |
 
 ## Connectors Without DR Counterpart
 - {list}
